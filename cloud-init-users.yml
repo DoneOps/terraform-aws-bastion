@@ -1,0 +1,14 @@
+#cloud-config
+runcmd:
+- sudo yum -y install jq
+  - aws ssm get-parameter --region ${region} --name SSH_PRIVATE_KEY_INSTANCES --with-decryption | jq '.Parameter | .Value' | sed '{s/\\n/\n/g}' | sed '{s/"//g}' > /home/ec2-user/.ssh/id_rsa
+  - chmod 600 /home/ec2-user/.ssh/id_rsa
+  - chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa
+  - aws ssm get-parameter --region ${region} --name SSH_RSA_PRIVATE_KEY_BASTION_HOST --with-decryption | jq '.Parameter | .Value' | sed '{s/\\n/\n/g}' | sed '{s/"//g}' > /etc/ssh/ssh_host_rsa_key
+  - aws ssm get-parameter --region ${region} --name SSH_RSA_PUBLIC_KEY_BASTION_HOST --with-decryption | jq '.Parameter | .Value' | sed '{s/\\n/\n/g}' | sed '{s/"//g}' > /etc/ssh/ssh_host_rsa_key.pub
+  - aws ssm get-parameter --region ${region} --name SSH_ED25519_PRIVATE_KEY_BASTION_HOST --with-decryption | jq '.Parameter | .Value' | sed '{s/\\n/\n/g}' | sed '{s/"//g}' > /etc/ssh/ssh_host_ed25519_key
+  - aws ssm get-parameter --region ${region} --name SSH_ED25519_PUBLIC_KEY_BASTION_HOST --with-decryption | jq '.Parameter | .Value' | sed '{s/\\n/\n/g}' | sed '{s/"//g}' > /etc/ssh/ssh_host_ed25519_key.pub
+  - chmod 600 /etc/ssh/ssh_host_ed25519_key
+  - chmod 644 /etc/ssh/ssh_host_rsa_key.pub
+  - chmod 644 /etc/ssh/ssh_host_ed25519_key.pub
+  - systemctl restart sshd
