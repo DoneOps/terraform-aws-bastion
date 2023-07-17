@@ -5,6 +5,6 @@ module "bastion_host" {
   subnet_id            = data.aws_subnets.default.ids[0]
   bastion_ip_allowlist = ["0.0.0.0/0"]
   ssh_public_keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDo6hqDehPPFoOuKlU8Db8RWfJX9It8EGY8Cpj3ICwFr john@doneops.com"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+tK6Jn6VAQnUoFsU5+70MbrgLxhss6pot9moWCdLav chaosmonkey@doneops.com"
   ]
 }
