@@ -19,32 +19,6 @@ data "aws_ami" "amazon2" {
   owners = ["137112412989"] # AWS
 }
 
-resource "aws_security_group" "allow_bastion_ssh_sg" {
-  name        = "allow_bastion_ssh_${var.name}"
-  description = "Allow ssh to the bastion host"
-  vpc_id      = var.vpc_id
-
-  ingress {
-    description = "SSH from IPs"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = var.bastion_ip_allowlist
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  tags = {
-    Name = "allow_bastion_ssh_${var.name}"
-  }
-}
-
 resource "aws_instance" "bastion_host_ec2" {
   ami                         = data.aws_ami.amazon2.id
   instance_type               = "t4g.micro"
@@ -57,9 +31,11 @@ resource "aws_instance" "bastion_host_ec2" {
   vpc_security_group_ids = [aws_security_group.allow_bastion_ssh_sg.id]
 
   user_data = templatefile(
-    "${path.module}/cloud-init-users.yml",
+    "${path.module}/cloud-init-userdata.tpl",
     {
-      region = var.region
+      region     = local.region
+      ssh_keys   = var.ssh_public_keys,
+      param_path = local.param_store_path
     }
   )
   credit_specification {
@@ -87,4 +63,30 @@ resource "tls_private_key" "bastion" {
 resource "aws_key_pair" "bastion" {
   key_name   = "bastion-${var.name}"
   public_key = tls_private_key.bastion.public_key_openssh
+}
+
+resource "aws_security_group" "allow_bastion_ssh_sg" {
+  name        = "allow_bastion_ssh_${var.name}"
+  description = "Allow ssh to the bastion host"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    description = "SSH from IPs"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.bastion_ip_allowlist
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow_bastion_ssh_${var.name}"
+  }
 }
