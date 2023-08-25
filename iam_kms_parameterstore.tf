@@ -81,8 +81,6 @@ resource "aws_ssm_parameter" "host_ssh_edsa_private_bastion" {
   }
 }
 
-
-
 resource "aws_iam_policy" "bastion_parameter_store_kms" {
   name = "BastionAccessParameterStoreKMS-${var.name}-${local.region}"
   path = "/"
