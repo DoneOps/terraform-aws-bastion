@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 (2023-08-25)
+
+## What's Changed
+* fix: add encrypted ebs by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/7
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.1.0...v0.1.1
+
 ## 0.1.0 (2023-07-18)
 
 ## What's Changed
