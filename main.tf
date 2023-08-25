@@ -41,6 +41,12 @@ resource "aws_instance" "bastion_host_ec2" {
   credit_specification {
     cpu_credits = "unlimited"
   }
+  root_block_device {
+    volume_size = 8
+    volume_type = "gp3"
+    encrypted   = true
+    kms_key_id  = module.ebs_kms_key.key_arn
+  }
 
   tags = {
     Name = "bastion-${var.name}"
@@ -88,5 +94,21 @@ resource "aws_security_group" "allow_bastion_ssh_sg" {
 
   tags = {
     Name = "allow_bastion_ssh_${var.name}"
+  }
+}
+
+module "ebs_kms_key" {
+  source  = "terraform-aws-modules/kms/aws"
+  version = "1.5.0"
+
+  description           = "key to encrypt bastion ebs volumes"
+  enable_default_policy = true
+  key_owners            = [data.aws_iam_session_context.current.issuer_arn]
+
+  # Aliases
+  aliases = ["bastion/${var.name}/ebs"]
+
+  tags = {
+    Name = "bastion-${var.name}"
   }
 }
