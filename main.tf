@@ -103,7 +103,7 @@ module "ebs_kms_key" {
 
   description           = "key to encrypt bastion ebs volumes"
   enable_default_policy = true
-  key_owners            = [data.aws_caller_identity.current.arn]
+  key_owners            = [data.aws_iam_session_context.current.issuer_arn]
 
   # Aliases
   aliases = ["bastion/${var.name}/ebs"]
