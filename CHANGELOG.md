@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0 (2023-09-06)
+
+## What's Changed
+* ci(deps): update terraform terraform-aws-modules/kms/aws to v2 by @renovate in https://github.com/DoneOps/terraform-aws-bastion/pull/10
+* feat: add ipv6 whitelisting by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/12
+
+## New Contributors
+* @renovate made their first contribution in https://github.com/DoneOps/terraform-aws-bastion/pull/10
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.1.1...v0.2.0
+
 ## 0.1.1 (2023-08-25)
 
 ## What's Changed
