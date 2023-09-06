@@ -14,7 +14,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ebs_kms_key"></a> [ebs\_kms\_key](#module\_ebs\_kms\_key) | terraform-aws-modules/kms/aws | 1.5.0 |
+| <a name="module_ebs_kms_key"></a> [ebs\_kms\_key](#module\_ebs\_kms\_key) | terraform-aws-modules/kms/aws | 2.0.0 |
 
 ## Resources
 
@@ -39,13 +39,15 @@ No requirements.
 | [aws_ami.amazon2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.ec2_role_assume_role_bastion_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_session_context.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_session_context) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_bastion_ip_allowlist"></a> [bastion\_ip\_allowlist](#input\_bastion\_ip\_allowlist) | List of IPv4 CIDR blocks which can access the Bastion proxy | `list(string)` | `[]` | no |
+| <a name="input_bastion_ip_allowlist_ipv4"></a> [bastion\_ip\_allowlist\_ipv4](#input\_bastion\_ip\_allowlist\_ipv4) | List of IPv4 CIDR blocks which can access the Bastion proxy | `list(string)` | `[]` | no |
+| <a name="input_bastion_ip_allowlist_ipv6"></a> [bastion\_ip\_allowlist\_ipv6](#input\_bastion\_ip\_allowlist\_ipv6) | List of IPv6 CIDR blocks which can access the Bastion proxy | `list(string)` | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Stack name to use in resource creation | `string` | n/a | yes |
 | <a name="input_ssh_public_keys"></a> [ssh\_public\_keys](#input\_ssh\_public\_keys) | List of public keys to add during build-time | `list(string)` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet in which to dpeloy the ec2 instance | `string` | n/a | yes |
