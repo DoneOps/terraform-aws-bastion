@@ -20,9 +20,15 @@ variable "tags" {
   default     = {}
 }
 
-variable "bastion_ip_allowlist" {
+variable "bastion_ip_allowlist_ipv4" {
   type        = list(string)
   description = "List of IPv4 CIDR blocks which can access the Bastion proxy"
+  default     = []
+}
+
+variable "bastion_ip_allowlist_ipv6" {
+  type        = list(string)
+  description = "List of IPv6 CIDR blocks which can access the Bastion proxy"
   default     = []
 }
 

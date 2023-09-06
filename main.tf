@@ -77,11 +77,12 @@ resource "aws_security_group" "allow_bastion_ssh_sg" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description = "SSH from IPs"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = var.bastion_ip_allowlist
+    description      = "SSH from IPs"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = var.bastion_ip_allowlist_ipv4
+    ipv6_cidr_blocks = var.bastion_ip_allowlist_ipv6
   }
 
   egress {
