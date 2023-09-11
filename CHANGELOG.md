@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 (2023-09-06)
+
+## What's Changed
+* chore: update docs by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/13
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.0...v0.2.1
+
 ## 0.2.0 (2023-09-06)
 
 ## What's Changed
