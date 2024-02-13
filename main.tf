@@ -100,7 +100,7 @@ resource "aws_security_group" "allow_bastion_ssh_sg" {
 
 module "ebs_kms_key" {
   source  = "terraform-aws-modules/kms/aws"
-  version = "2.1.0"
+  version = "2.2.0"
 
   description           = "key to encrypt bastion ebs volumes"
   enable_default_policy = true
