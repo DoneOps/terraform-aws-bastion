@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3 (2024-02-14)
+
+## What's Changed
+* fix: require IMDSv2 by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/19
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.2...v0.2.3
+
 ## 0.2.2 (2024-02-13)
 
 ## What's Changed
