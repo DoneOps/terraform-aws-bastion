@@ -47,6 +47,9 @@ resource "aws_instance" "bastion_host_ec2" {
     encrypted   = true
     kms_key_id  = module.ebs_kms_key.key_arn
   }
+  metadata_options {
+    http_tokens = "required"
+  }
 
   tags = {
     Name = "bastion-${var.name}"
