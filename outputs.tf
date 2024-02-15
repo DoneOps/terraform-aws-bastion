@@ -15,3 +15,7 @@ output "bastion_private_key" {
 output "bastion_public_key" {
   value = tls_private_key.bastion.public_key_openssh
 }
+
+output "instance_id" {
+  value = aws_instance.bastion_host_ec2.id
+}
