@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.4 (2024-02-15)
+
+## What's Changed
+* fix: add instance id output by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/21
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.3...v0.2.4
+
 ## 0.2.3 (2024-02-14)
 
 ## What's Changed
