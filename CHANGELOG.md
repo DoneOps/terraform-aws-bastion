@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.5 (2024-06-17)
+
+## What's Changed
+* ci(deps): update terraform terraform-aws-modules/kms/aws to v2.2.1 by @renovate in https://github.com/DoneOps/terraform-aws-bastion/pull/23
+* chore: update owners by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/25
+* ci(deps): update terraform terraform-aws-modules/kms/aws to v3 by @renovate in https://github.com/DoneOps/terraform-aws-bastion/pull/26
+* ci(deps): update terraform terraform-aws-modules/kms/aws to v3.1.0 by @renovate in https://github.com/DoneOps/terraform-aws-bastion/pull/27
+* fix: use amazon linux 2023 by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/28
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.4...v0.2.5
+
 ## 0.2.4 (2024-02-15)
 
 ## What's Changed
