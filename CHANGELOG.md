@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.6 (2024-10-14)
+
+## What's Changed
+* ci(deps): update terraform terraform-aws-modules/kms/aws to v3.1.1 by @renovate in https://github.com/DoneOps/terraform-aws-bastion/pull/29
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.5...v0.2.6
+
 ## 0.2.5 (2024-06-17)
 
 ## What's Changed
