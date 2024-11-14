@@ -156,6 +156,16 @@ resource "aws_iam_role" "ec2_role_bastion" {
   ]
 }
 
+resource "aws_iam_role_policy_attachment" "bastion_ec2_role_policy_attachment" {
+  role       = aws_iam_role.ec2_role_bastion.name
+  policy_arn = aws_iam_policy.parameter_store_read_keys.arn
+}
+
+resource "aws_iam_role_policy_attachment" "bastion_ec2_role_kms_policy_attachment" {
+  role       = aws_iam_role.ec2_role_bastion.name
+  policy_arn = aws_iam_policy.bastion_parameter_store_kms.arn
+}
+
 data "aws_iam_policy_document" "ec2_role_assume_role_bastion_policy" {
   version = "2008-10-17"
   statement {
