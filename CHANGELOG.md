@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.7 (2024-11-14)
+
+## What's Changed
+* fix: update iam_role_policy_attachment dep by @jmymy in https://github.com/DoneOps/terraform-aws-bastion/pull/31
+
+
+**Full Changelog**: https://github.com/DoneOps/terraform-aws-bastion/compare/v0.2.6...v0.2.7
+
 ## 0.2.6 (2024-10-14)
 
 ## What's Changed
